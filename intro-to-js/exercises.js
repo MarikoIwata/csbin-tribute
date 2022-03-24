@@ -1,30 +1,4 @@
 /* ========== *
- * Challenge 6 *
- * =========== */
-
-function letterExists(word, letter) {
-  //your code goes here...
-}
-
-// letterExists("superman", "e") //=> true
-// letterExists("starship", "S") //=> false
-// letterExists("th1s", "1") //=> true
-// letterExists("he!lo", "!") //=> true
-
-/* =========== *
- * Challenge 7 *
- * ============ */
-
-function isPrime(number) {
-  // your code here...
-}
-
-// isPrime(-7): // => false
-// isPrime(2); // => true
-// isPrime(11); // => true
-// isPrime(15); // => false
-
-/* ========== *
  * Challenge 8 *
  * =========== */
 
