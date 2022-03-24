@@ -1,5 +1,6 @@
 /*
 Challenge 2
+
 Create a function createFunctionPrinter that accepts one input and returns a function. 
 When that created function is called, it should return the input that was used when the function was created.
 
