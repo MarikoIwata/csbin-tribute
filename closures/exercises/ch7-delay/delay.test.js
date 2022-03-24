@@ -9,9 +9,9 @@ const mocks = {
   expectedOutput: 6,
 };
 
-async function wrappedDelay(func, wait, ...args) {
-  return await new Promise((res, _rej) => {
-    timerObj = setTimeout(() => {
+function wrappedDelay(func, wait, ...args) {
+  return new Promise((res, _rej) => {
+    setTimeout(() => {
       const output = func(...args);
       res(output);
     }, wait);

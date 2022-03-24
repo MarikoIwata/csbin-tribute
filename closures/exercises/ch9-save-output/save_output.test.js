@@ -14,7 +14,7 @@ const mocks = {
 };
 
 function isObject(x) {
-  return x !== null && (typeof x === 'object' || typeof x === 'function');
+  return x !== null && typeof x === 'object' && !Array.isArray(x);
 }
 
 describe('saveOutput(func, password) challenge', () => {
@@ -46,10 +46,3 @@ describe('saveOutput(func, password) challenge', () => {
     expect(o).toEqual(cache);
   });
 });
-
-// /*** Uncomment these to check your work! ***/
-// const multiplyBy2 = function(num) { return num * 2; };
-// const multBy2AndLog = saveOutput(multiplyBy2, 'boo');
-// console.log(multBy2AndLog(2)); // => should log 4
-// console.log(multBy2AndLog(9)); // => should log 18
-// console.log(multBy2AndLog('boo')); // => should log { 2: 4, 9: 18 }
