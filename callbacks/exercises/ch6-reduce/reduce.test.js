@@ -17,24 +17,25 @@ describe('reduce() challenge', () => {
 
   test('should return a single value', () => {
     const returnedNum = reduce(numbers, cb);
-    const returnedString = reduce(strings, cb);
+    const returnedStr = reduce(strings, cb);
+
     expect(returnedNum).toEqual(sum);
     expect(typeof returnedNum).toBe('number');
 
-    expect(returnedString).toEqual(word);
-    expect(typeof returnedString).toEqual('string');
+    expect(returnedStr).toEqual(word);
+    expect(typeof returnedStr).toEqual('string');
   });
 
   test('should handle initialValue argument', () => {
     const { initialNum, initialString } = mocks;
 
     const returnedNum = reduce(numbers, cb, initialNum);
-    const returnedString = reduce(strings, cb, initialString);
+    const returnedStr = reduce(strings, cb, initialString);
 
     expect(returnedNum).toEqual(sum + initialNum);
     expect(typeof returnedNum).toBe('number');
 
-    expect(returnedString).toEqual(initialString + word);
-    expect(typeof returnedString).toEqual('string');
+    expect(returnedStr).toEqual(initialString + word);
+    expect(typeof returnedStr).toEqual('string');
   });
 });

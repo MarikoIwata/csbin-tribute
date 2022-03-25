@@ -22,8 +22,6 @@ from the command line
 
 */
 
-const { log } = console;
-
 function reduce(array, callback, initialValue) {
   let i = 0;
 
@@ -35,8 +33,5 @@ function reduce(array, callback, initialValue) {
 
   return initialValue;
 }
-
-log(reduce([1, 2, 3, 5], (x, y) => x + y));
-log(reduce([1, 2, 3, 5], (x, y) => String(x) + String(y)));
 
 module.exports = reduce;
