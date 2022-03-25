@@ -8,8 +8,8 @@ npm t add_s
 from the command line
 */
 
-function addS(word) {}
+function addS(word) {
+  return word + 's';
+}
 
-// uncomment these to check your work
-// console.log(addS('pizza'));
-// console.log(addS('bagel'));
+module.exports = addS;
