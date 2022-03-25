@@ -22,13 +22,14 @@ from the command line
 
 */
 
-function reduce(array, callback, initialValue) {
-  let i = 0;
+function reduce(array, reducerCallback, initialValue) {
+  if (initialValue === undefined) {
+    initialValue = array[0];
+    array = array.slice(1);
+  }
 
-  if (initialValue === undefined) initialValue = array[i++];
-
-  for (i; i < array.length; i++) {
-    initialValue = callback(initialValue, array[i]);
+  for (const [currentIndex, currentValue] of array.entries()) {
+    initialValue = reducerCallback(initialValue, currentValue, currentIndex);
   }
 
   return initialValue;
