@@ -22,4 +22,21 @@ from the command line
 
 */
 
-function reduce(array, callback, initialValue) {}
+const { log } = console;
+
+function reduce(array, callback, initialValue) {
+  let i = 0;
+
+  if (initialValue === undefined) initialValue = array[i++];
+
+  for (i; i < array.length; i++) {
+    initialValue = callback(initialValue, array[i]);
+  }
+
+  return initialValue;
+}
+
+log(reduce([1, 2, 3, 5], (x, y) => x + y));
+log(reduce([1, 2, 3, 5], (x, y) => String(x) + String(y)));
+
+module.exports = reduce;
