@@ -12,7 +12,14 @@ from the command line
 
 */
 
-function union(arrays) {}
+const union = (arrs) => arrs.reduce((a, c) => [...new Set(a.concat(c))]);
 
-// console.log(union([[5, 10, 15], [15, 88, 1, 5, 7], [100, 15, 10, 1, 5]]));
-// should log: [5, 10, 15, 88, 1, 7, 100]
+console.log(
+  union([
+    [5, 10, 15],
+    [15, 88, 1, 5, 7],
+    [100, 15, 10, 1, 5],
+  ])
+);
+
+module.exports = union;
