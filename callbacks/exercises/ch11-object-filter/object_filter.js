@@ -7,6 +7,8 @@ a new object. The new object will contain only the properties from the input
 object such that the property's value is equal to the property's key passed 
 into the callback.
 
+Bonus: utilise Object.entries() and Object.fromEntries() in your solution
+
 To test your solution run
 npm t object_filter
 from the command line

@@ -6,16 +6,6 @@
 
 */
 
-// Challenge 11
-function objectFilter(obj, callback) {}
-
-// const cities = {
-// London: 'LONDON',
-// LA: 'Los Angeles',
-// Paris: 'PARIS',
-// };
-// console.log(objectFilter(cities, city => city.toUpperCase())) // Should log { London: 'LONDON', Paris: 'PARIS'}
-
 // Challenge 12
 function majority(array, callback) {}
 
