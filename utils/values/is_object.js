@@ -1,5 +1,5 @@
 function isObject(v) {
-  return v !== null && (typeof v === 'object' || typeof v === 'function');
+  return v !== null && typeof v === 'object' && !Array.isArray(v);
 }
 
 module.exports = isObject;
