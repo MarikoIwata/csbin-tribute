@@ -1,4 +1,6 @@
-const intersection = require('./intersection');
+let intersection;
+intersection = require('./intersection');
+// intersection = require('./solution'); // uncomment to test solution file
 
 const mocks = {
   arg: [

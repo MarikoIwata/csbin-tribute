@@ -12,10 +12,6 @@ from the command line
 
 */
 
-function intersection(arrays) {
-  return arrays.reduce((acc, curr) => {
-    return acc.filter((c) => curr.includes(c));
-  });
-}
+function intersection(arrays) {}
 
 module.exports = intersection;
