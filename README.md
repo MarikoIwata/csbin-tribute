@@ -2,7 +2,7 @@
 
 _Up to date as of 26 March 2022_
 
-csbin.io is a browser based JS interpreter powered by [Codesmith](https://www.codesmith.io).
+[csbin](https://www.csbin.io) is a browser based JS interpreter powered by [Codesmith](https://www.codesmith.io).
 
 csbin, as it's casually referred to, has collections of coding challenges organized by these topics:
 
