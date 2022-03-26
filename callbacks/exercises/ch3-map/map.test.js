@@ -1,4 +1,6 @@
-const map = require('./map');
+let map;
+map = require('./map');
+// map = require('./solution'); // uncomment to test solution file
 
 const mocks = {
   array: [1, 2, 3],
