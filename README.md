@@ -34,7 +34,7 @@ I have edited some of the instructions, usually suggesting to return values rath
 
 In some cases, my tests check for corner cases that csbin ignores.
 
-The tests are the only code authored completely by me. Any suggestions for improvement are welcome!
+The tests – and some stray solutions – are the only code authored completely by me. Any suggestions for improvement are welcome!
 
 I plan to use this repo to help others learn, but I do not charge for "lessons" (they're really just pair programming sessions).
 

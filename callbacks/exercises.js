@@ -6,14 +6,6 @@
 
 */
 
-// Challenge 12
-function majority(array, callback) {}
-
-// /*** Uncomment these to check your work! ***/
-// const isOdd = function(num) { return num % 2 === 1; };
-// console.log(majority([1, 2, 3, 4, 5], isOdd)); // should log: true
-// console.log(majority([2, 3, 4, 5], isOdd)); // should log: false
-
 // Challenge 13
 function prioritize(array, callback) {}
 
