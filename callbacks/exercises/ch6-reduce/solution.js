@@ -5,7 +5,12 @@ function reduce(array, reducerCallback, initialValue) {
   }
 
   for (const [currentIndex, currentValue] of array.entries()) {
-    initialValue = reducerCallback(initialValue, currentValue, currentIndex);
+    initialValue = reducerCallback(
+      initialValue,
+      currentValue,
+      currentIndex,
+      array
+    );
   }
 
   return initialValue;
