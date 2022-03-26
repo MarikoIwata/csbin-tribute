@@ -23,16 +23,24 @@ describe('myForEach(array, callback)', () => {
 
   const result = myForEach(array, callback);
 
-  test('should pass each array element to the callback function in order', () => {
+  test('should pass each array element to callback in order', () => {
     const cbFirstArgs = callback.mock.calls.map((args) => args[0]);
     expect(cbFirstArgs).toEqual(array);
   });
 
-  test('should pass correct index as second argument to the callback', () => {
+  test('should pass correct index as second argument to callback', () => {
     const cbSecondArgs = callback.mock.calls.map((args) => args[1]);
     const indices = arrayToNumbers(Object.keys(array));
 
     expect(cbSecondArgs).toEqual(indices);
+  });
+
+  test('should pass array as third argument to callback ', () => {
+    const cbThirdArgs = callback.mock.calls.map((args) => args[2]);
+
+    cbThirdArgs.forEach((thirdArg) => {
+      expect(thirdArg).toStrictEqual(array);
+    });
   });
 
   test('should return undefined', () => {
