@@ -1,10 +1,10 @@
 let myForEach;
-myForEach = require('./my_for_each');
-// myForEach = require('./solution'); // uncomment to test solution file
+// myForEach = require('./my_for_each');
+myForEach = require('./solution'); // uncomment to test solution file
 const arrayToNumbers = require('../../../utils/values/array_to_numbers');
+const getNthMockCbArg = require('../../../utils/mocks/get_nth_mock_cb_arg');
 
 let sum = 0; // for mocks.callback to mutate
-
 const mocks = {
   array: [1, 2, 3],
   arrayWithEmpties: [1, , 2, , 3],
@@ -24,19 +24,19 @@ describe('myForEach(array, callback)', () => {
   const result = myForEach(array, callback);
 
   test('should pass each array element to callback in order', () => {
-    const cbFirstArgs = callback.mock.calls.map((args) => args[0]);
+    const cbFirstArgs = getNthMockCbArg(callback, 1);
     expect(cbFirstArgs).toEqual(array);
   });
 
   test('should pass correct index as second argument to callback', () => {
-    const cbSecondArgs = callback.mock.calls.map((args) => args[1]);
+    const cbSecondArgs = getNthMockCbArg(callback, 2);
     const indices = arrayToNumbers(Object.keys(array));
 
     expect(cbSecondArgs).toEqual(indices);
   });
 
   test('should pass array as third argument to callback ', () => {
-    const cbThirdArgs = callback.mock.calls.map((args) => args[2]);
+    const cbThirdArgs = getNthMockCbArg(callback, 3);
 
     cbThirdArgs.forEach((thirdArg) => {
       expect(thirdArg).toStrictEqual(array);
