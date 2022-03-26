@@ -9,10 +9,6 @@ npm t for_each
 from the command line
 */
 
-function forEach(array, callback) {
-  for (const el of array) {
-    callback(el);
-  }
-}
+function forEach(array, callback) {}
 
 module.exports = forEach;

@@ -1,4 +1,6 @@
-const forEach = require('./for_each');
+let forEach;
+forEach = require('./for_each');
+// forEach = require('./solution'); // uncomment to test solution file
 
 const mocks = {
   array: [1, 2, 3],
