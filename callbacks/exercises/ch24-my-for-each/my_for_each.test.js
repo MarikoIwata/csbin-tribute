@@ -1,6 +1,6 @@
 let myForEach;
-// myForEach = require('./my_for_each');
-myForEach = require('./solution'); // uncomment to test solution file
+myForEach = require('./my_for_each');
+// myForEach = require('./solution'); // uncomment to test solution file
 const arrayToNumbers = require('../../../utils/values/array_to_numbers');
 const getNthMockCbArg = require('../../../utils/mocks/get_nth_mock_cb_arg');
 

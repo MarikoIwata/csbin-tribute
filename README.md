@@ -41,3 +41,11 @@ I plan to use this repo to help others learn, but I do not charge for "lessons" 
 Finally, Codesmith and their co-founder, Will Sentance, are among my personal JS heroes. They are perhaps the single biggest reason why I have grown to love JS 😊
 
 On that sentimental note, enjoy :)
+
+### Instructions to run on your machine
+
+1. Make sure you have a decently recent version of node installed
+2. Get the code (clone/fork/download)
+3. Run `npm install`
+
+And you're hopefully good to go!

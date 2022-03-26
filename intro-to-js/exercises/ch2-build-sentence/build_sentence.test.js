@@ -1,4 +1,6 @@
-const buildSentence = require('./build_sentence');
+let buildSentence;
+buildSentence = require('./build_sentence');
+// buildSentence = require('./solution'); // uncomment to test solution file
 
 describe('buildSentence(word1, word2, word3) challenge', () => {
   test('combines three strings and to form sentence with capitalization and punctuation', () => {
