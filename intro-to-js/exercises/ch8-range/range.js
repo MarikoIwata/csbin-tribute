@@ -1,21 +1,22 @@
 /* ========== *
  * Challenge 8 *
 
-Create a function range that console.logs all numbers between 
+Create a function range returns an array of all whole numbers between 
 'start' and 'end' in sequential order.
 
 To test your solution run 
 npm t range
 from the command line
 
- * =========== */
+* =========== */
 
 function range(start, end) {
-  //your code goes here...
-}
+  const output = [];
 
-//Uncomment the lines below to test your code
-// range(1,4) //=> 1, 2, 3, 4
-// range(4,2) //=>
+  for (let i = start; i <= end; i++) {
+    output.push(i);
+  }
+  return output;
+}
 
 module.exports = range;
