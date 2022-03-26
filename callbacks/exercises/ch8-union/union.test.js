@@ -1,4 +1,6 @@
-const union = require('./union');
+let union;
+union = require('./union');
+// union = require('./solution'); // uncomment to test solution file
 
 const mocks = {
   arg: [

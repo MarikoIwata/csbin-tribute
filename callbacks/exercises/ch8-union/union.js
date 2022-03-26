@@ -12,14 +12,6 @@ from the command line
 
 */
 
-const union = (arrs) => arrs.reduce((a, c) => [...new Set(a.concat(c))]);
-
-console.log(
-  union([
-    [5, 10, 15],
-    [15, 88, 1, 5, 7],
-    [100, 15, 10, 1, 5],
-  ])
-);
+function union(arrays) {}
 
 module.exports = union;
