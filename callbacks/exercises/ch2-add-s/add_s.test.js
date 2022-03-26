@@ -1,4 +1,6 @@
-const addS = require('./add_s');
+let addS;
+addS = require('./add_s');
+// addS = require('./solution'); // uncomment to test solution file
 
 describe('addS(word) challenge', () => {
   test('should return original input with "s" added to the end', () => {

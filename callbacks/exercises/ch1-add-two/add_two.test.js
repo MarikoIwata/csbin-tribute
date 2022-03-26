@@ -1,4 +1,6 @@
-const addTwo = require('./add_two');
+let addTwo;
+addTwo = require('./add_two');
+// addTwo = require('./solution'); // uncomment to test solution file
 
 describe('addTwo(num) challenge', () => {
   test('should return input + 2', () => {

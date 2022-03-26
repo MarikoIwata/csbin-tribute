@@ -8,8 +8,6 @@ npm t add_two
 from the command line
 */
 
-function addTwo(num) {
-  return num + 2;
-}
+function addTwo(num) {}
 
 module.exports = addTwo;
