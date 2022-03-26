@@ -2,7 +2,7 @@ let groupBy;
 groupBy = require('./group_by');
 // groupBy = require('./solution'); // uncomment to test solution file
 const isObject = require('../../../utils/values/is_object');
-const toNumber = require('../../../utils/values/to_number');
+const arrayToNumbers = require('../../../utils/values/array_to_numbers');
 
 const mocks = {
   decimals: [1.3, 2.1, 2.4],
@@ -31,7 +31,7 @@ describe('groupBy(array, callback)', () => {
       ...new Set(callback.mock.results.map(({ value }) => value)),
     ];
     // keys need to be coerced from strings to numbers for comparison
-    const keys = toNumber(Object.keys(result));
+    const keys = arrayToNumbers(Object.keys(result));
     expect(cbResults).toEqual(keys);
   });
 
