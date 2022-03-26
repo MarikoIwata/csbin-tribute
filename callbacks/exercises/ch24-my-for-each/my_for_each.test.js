@@ -15,7 +15,6 @@ const mocks = {
   thisAwareCb: jest.fn(function append(val) {
     this.push(val);
   }),
-  valToMutate: 0,
   thisArg: [2, 4, 6],
 };
 
