@@ -1,6 +1,6 @@
 let majority;
 majority = require('./majority');
-// majority = require('./solution'); // solution
+// majority = require('./solution'); // uncomment to test solution file
 
 const mocks = {
   arr1: [1, 2, 3, 5, 4],

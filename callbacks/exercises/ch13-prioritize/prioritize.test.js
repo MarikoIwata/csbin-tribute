@@ -1,6 +1,6 @@
 let prioritize;
 prioritize = require('./prioritize');
-// prioritize = require('./solution'); // comment in to test solution file
+// prioritize = require('./solution'); // uncomment to test solution file
 
 const mocks = {
   array: ['curb', 'rickandmorty', 'Seinfeld', 'sunny', 'friends', 'sea'],

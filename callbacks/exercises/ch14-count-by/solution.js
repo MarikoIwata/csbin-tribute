@@ -8,4 +8,12 @@ function countBy(array, callback) {
   }, {});
 }
 
+function otherCountBy(array, callback) {
+  return array.reduce((acc, cur) => {
+    const v = callback(cur);
+    acc[v] === undefined ? (acc[v] = 1) : ++acc[v];
+    return acc;
+  }, {});
+}
+
 module.exports = countBy;
