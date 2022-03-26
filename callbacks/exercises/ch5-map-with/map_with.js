@@ -8,6 +8,8 @@ This time you're going to use forEach inside of mapWith instead of using a for l
 To test your solution run
 npm t map_with
 from the command line
- */
+*/
 
 function mapWith(array, callback) {}
+
+module.exports = mapWith;
