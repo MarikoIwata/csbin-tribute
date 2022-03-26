@@ -1,4 +1,6 @@
-const majority = require('./majority');
+let majority;
+majority = require('./majority');
+// majority = require('./solution'); // solution
 
 const mocks = {
   arr1: [1, 2, 3, 5, 4],
