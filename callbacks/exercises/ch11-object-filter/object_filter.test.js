@@ -1,4 +1,6 @@
-const objectFilter = require('./object_filter');
+let objectFilter;
+objectFilter = require('./object_filter');
+// objectFilter = require('./solution'); // uncomment to test solution file
 const isObject = require('../../../utils/values/is_object');
 
 const mocks = {

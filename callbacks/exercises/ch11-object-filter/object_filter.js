@@ -14,13 +14,6 @@ npm t object_filter
 from the command line
 */
 
-function objectFilter(obj, callback) {
-  const filteredEntries = Object.entries(obj).filter(
-    ([key, value]) => callback(key) === value
-  );
-
-  console.log('filteredEntries', filteredEntries);
-  return Object.fromEntries(filteredEntries);
-}
+function objectFilter(obj, callback) {}
 
 module.exports = objectFilter;
