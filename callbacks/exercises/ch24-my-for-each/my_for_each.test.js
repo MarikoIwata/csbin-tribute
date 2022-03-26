@@ -3,7 +3,7 @@ myForEach = require('./my_for_each');
 // myForEach = require('./solution'); // uncomment to test solution file
 const arrayToNumbers = require('../../../utils/values/array_to_numbers');
 
-let sum = 0;
+let sum = 0; // for mocks.callback to mutate
 
 const mocks = {
   array: [1, 2, 3],
