@@ -1,4 +1,6 @@
-const reduce = require('./reduce');
+let reduce;
+reduce = require('./reduce');
+// reduce = require('./solution'); // uncomment to test solution file
 
 const mocks = {
   numbers: [1, 2, 3, 4, 5],
