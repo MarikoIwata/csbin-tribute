@@ -37,7 +37,10 @@ function initializeChallenges(topic, challenges) {
       if (fileName.includes('.test.')) {
         fileContents = `let ${funcName};\n${funcName} = require('./${baseFileName}');\n//${funcName} = require('./${fileNames
           .at(-1)
-          .slice(0, -3)}'); // uncomment to test solution file  `;
+          .slice(0, -3)}'); // uncomment to test solution file\n\n${testStarter(
+          funcName,
+          params
+        )}  `;
       } else {
         fileContents = `function ${funcName}(${params}) {}\n\nmodule.exports = ${funcName};`;
       }
@@ -60,6 +63,10 @@ function dirToFuncName(dirName) {
     .slice(1)
     .map((word) => `${word[0].toUpperCase()}${word.slice(1)}`);
   return firstWord + titleCasedWords.join('');
+}
+
+function testStarter(funcName, params) {
+  return `describe('${funcName}(${params})', () => {\n\ttest('should ', () => {});\n});`;
 }
 
 //  ********************************* script execution site
