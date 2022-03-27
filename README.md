@@ -26,21 +26,24 @@ Reasons I decided to create this repo:
 4. Certain features behave a bit strangely in the csbin environment (one example: `const { log } = console;` throws an error)
 5. I have begun writing tests for the challenges. This is great practice for me personally, and provides an extra learning angle for others.
 
-I want to stress – all credit goes to codesmith here.
-
-All of the challenges (with one or two exceptions) are directly copy/pasted from csbin.
+All credit goes to codesmith here. All of the challenges (with one or two exceptions) are directly copy/pasted from csbin.
 
 I have edited some of the instructions, usually suggesting to return values rather than logging them.
 
 In some cases, my tests check for corner cases that csbin ignores.
 
-The tests – and some stray solutions – are the only code authored completely by me. Any suggestions for improvement are welcome!
+The tests and solution files are the code authored by me. Any suggestions for improvement are welcome!
 
 I plan to use this repo to help others learn, but I do not charge for "lessons" (they're really just pair programming sessions).
 
 Finally, Codesmith and their co-founder, Will Sentance, are among my personal JS heroes. They are perhaps the single biggest reason why I have grown to love JS 😊
 
 On that sentimental note, enjoy :)
+
+### _Update 27 March 2022:_
+
+- I couldn't help myself and am coming up with additional challenges that I hope are instructive.
+- They will live in the 'extensions' folder – to signal they're not part of the original csbin.
 
 ### Instructions to run on your machine
 
