@@ -20,7 +20,7 @@ const challenges = [
   { challenge: 'censor', params: [] },
   { challenge: 'create-secret-holder', params: ['secret'] },
   { challenge: 'call-times', params: [] },
-  { challenge: 'russian-roulette', params: ['obj', 'arr'] },
+  { challenge: 'russian-roulette', params: ['num'] },
   { challenge: 'average', params: [] },
   { challenge: 'make-func-tester', params: ['arrOfTests'] },
   { challenge: 'make-history', params: ['limit'] },
