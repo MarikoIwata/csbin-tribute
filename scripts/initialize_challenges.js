@@ -18,7 +18,7 @@ const challenges = [
 function initializeChallenges(topic, challenges) {
   const topicPath = path.join(__filename, '..', '..', topic, 'exercises');
 
-  challenges.forEach(({ challenge: challengeDir, params }) => {
+  challenges.forEach(({ challenge: challengeDir, params }, index) => {
     const challengePath = `${topicPath}/${challengeDir}`;
     fs.mkdirSync(challengePath);
 
@@ -32,17 +32,20 @@ function initializeChallenges(topic, challenges) {
     fileNames.forEach((fileName) => {
       const filePath = `${challengePath}/${fileName}`;
       const funcName = dirToFuncName(challengeDir);
-      let fileContents;
+      let fileContents = '';
 
-      if (fileName.includes('.test.')) {
-        fileContents = `let ${funcName};\n${funcName} = require('./${baseFileName}');\n//${funcName} = require('./${fileNames
+      if (!fileName.includes('.test.')) {
+        if (!fileName.includes('solution')) {
+          fileContents += starterInstructions(baseFileName, index);
+        }
+        fileContents += `function ${funcName}(${params}) {}\n\nmodule.exports = ${funcName};`;
+      } else {
+        fileContents += `let ${funcName};\n${funcName} = require('./${baseFileName}');\n//${funcName} = require('./${fileNames
           .at(-1)
           .slice(0, -3)}'); // uncomment to test solution file\n\n${testStarter(
           funcName,
           params
         )}  `;
-      } else {
-        fileContents = `function ${funcName}(${params}) {}\n\nmodule.exports = ${funcName};`;
       }
 
       fs.writeFileSync(filePath, fileContents);
@@ -62,11 +65,18 @@ function dirToFuncName(dirName) {
   const titleCasedWords = words
     .slice(1)
     .map((word) => `${word[0].toUpperCase()}${word.slice(1)}`);
+
   return firstWord + titleCasedWords.join('');
 }
 
 function testStarter(funcName, params) {
   return `describe('${funcName}(${params})', () => {\n\ttest('should ', () => {});\n});`;
+}
+
+function starterInstructions(test, index) {
+  return `/*\nChallenge ${
+    index + 1
+  }\n\nTo test your solution run\nnpm t ${test}\nfrom the command line\n\n*/\n\n`;
 }
 
 //  ********************************* script execution site
