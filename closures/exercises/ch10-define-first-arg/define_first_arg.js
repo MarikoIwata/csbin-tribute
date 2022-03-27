@@ -13,12 +13,17 @@ npm t define_first_arg
 from the command line
 
 */
-function defineFirstArg(func, arg) {}
+function defineFirstArg(func, arg) {
+  return function (...furtherArgs) {
+    return func(arg, ...furtherArgs);
+  };
+}
 
 // /*** Uncomment these to check your work! ***/
-// const subtract = function(big, small) { return big - small; };
-// const subFrom20 = defineFirstArg(subtract, 20);
-// console.log(subFrom20(5)); // => should log 15
+const subtract = function (big, small) {
+  return big - small;
+};
+const subFrom20 = defineFirstArg(subtract, 20);
+console.log(subFrom20(5)); // => should log 15
 
-function defineFirstArg() {}
 module.exports = defineFirstArg;

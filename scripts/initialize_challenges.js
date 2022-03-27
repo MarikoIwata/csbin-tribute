@@ -19,7 +19,7 @@ function initializeChallenges(topic, challenges) {
   const topicPath = path.join(__filename, '..', '..', topic, 'exercises');
 
   challenges.forEach(({ challenge: challengeDir, params }, index) => {
-    const challengePath = `${topicPath}/${challengeDir}`;
+    const challengePath = `${topicPath}/ch${index + 1}-${challengeDir}`;
     fs.mkdirSync(challengePath);
 
     const baseFileName = dirToFileName(challengeDir);
@@ -81,4 +81,4 @@ function starterInstructions(test, index) {
 
 //  ********************************* script execution site
 
-// initializeChallenges('recursion', challenges);
+initializeChallenges('recursion', challenges);
