@@ -2,24 +2,36 @@ const fs = require('fs');
 const path = require('path');
 
 // would obvs need to be manually edited for different challenge sets
+// const challenges = [
+//   { challenge: 'countdown', params: ['n'] },
+//   { challenge: 'sum', params: ['array'] },
+//   { challenge: 'palindrome', params: ['string'] },
+//   { challenge: 'is-prime', params: ['num'] },
+//   { challenge: 'path-finder', params: ['obj', 'arr'] },
+//   { challenge: 'flatten-recursively', params: ['arr'] },
+//   { challenge: 'find-in-ordered-set', params: ['arr', 'target'] },
+//   { challenge: 'ways-to-reach-nth-stair', params: ['n'] },
+//   { challenge: 'get-permutations', params: ['arr'] },
+//   { challenge: 'get-range-between', params: ['x', 'y'] },
+// ];
+
 const challenges = [
-  { challenge: 'countdown', params: ['n'] },
-  { challenge: 'sum', params: ['array'] },
-  { challenge: 'palindrome', params: ['string'] },
-  { challenge: 'is-prime', params: ['num'] },
-  { challenge: 'path-finder', params: ['obj', 'arr'] },
-  { challenge: 'flatten-recursively', params: ['arr'] },
-  { challenge: 'find-in-ordered-set', params: ['arr', 'target'] },
-  { challenge: 'ways-to-reach-nth-stair', params: ['n'] },
-  { challenge: 'get-permutations', params: ['arr'] },
-  { challenge: 'get-range-between', params: ['x', 'y'] },
+  { challenge: 'date-stamp', params: ['func'] },
+  { challenge: 'censor', params: [] },
+  { challenge: 'create-secret-holder', params: ['secret'] },
+  { challenge: 'call-times', params: [] },
+  { challenge: 'russian-roulette', params: ['obj', 'arr'] },
+  { challenge: 'average', params: [] },
+  { challenge: 'make-func-tester', params: ['arrOfTests'] },
+  { challenge: 'make-history', params: ['limit'] },
+  { challenge: 'blackjack', params: ['array'] },
 ];
 
 function initializeChallenges(topic, challenges) {
   const topicPath = path.join(__filename, '..', '..', topic, 'exercises');
 
   challenges.forEach(({ challenge: challengeDir, params }, index) => {
-    const challengePath = `${topicPath}/ch${index + 1}-${challengeDir}`;
+    const challengePath = `${topicPath}/ch${index + 12}-${challengeDir}`;
     fs.mkdirSync(challengePath);
 
     const baseFileName = dirToFileName(challengeDir);
@@ -75,10 +87,10 @@ function testStarter(funcName, params) {
 
 function starterInstructions(test, index) {
   return `/*\nChallenge ${
-    index + 1
+    index + 12
   }\n\nTo test your solution run\nnpm t ${test}\nfrom the command line\n\n*/\n\n`;
 }
 
 //  ********************************* script execution site
 
-initializeChallenges('recursion', challenges);
+// initializeChallenges('closures', challenges);
