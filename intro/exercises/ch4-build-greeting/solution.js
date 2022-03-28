@@ -1,3 +1,9 @@
+/* 
+Note this solution uses features that are far from introductory!
+Feel free to get in touch if you don't yet understand everything here but
+would like to :))
+*/
+
 const isBetween = (x, y) => (z) => z >= x && z <= y;
 
 const isMorning = isBetween(0, 11);
