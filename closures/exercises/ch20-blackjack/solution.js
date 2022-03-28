@@ -13,14 +13,13 @@ function blackjack(array) {
       playerCalls += 1;
       // on first call: simply return sum
       if (playerCalls == 1) return sum;
-
       // otherwise increment sum by next array value and check
       sum += iterator.next().value;
       if (sum > BLACKJACK) {
         busted = true;
         return 'bust';
       }
-
+      // until sum hits BLACKJACK we keep returning it
       return sum;
     };
   };
