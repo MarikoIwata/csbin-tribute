@@ -1,37 +1,37 @@
 const fs = require('fs');
 const path = require('path');
+const challenges = require('../challenge_meta_data');
 
-// would obvs need to be manually edited for different challenge sets
-// const challenges = [
-//   { challenge: 'countdown', params: ['n'] },
-//   { challenge: 'sum', params: ['array'] },
-//   { challenge: 'palindrome', params: ['string'] },
-//   { challenge: 'is-prime', params: ['num'] },
-//   { challenge: 'path-finder', params: ['obj', 'arr'] },
-//   { challenge: 'flatten-recursively', params: ['arr'] },
-//   { challenge: 'find-in-ordered-set', params: ['arr', 'target'] },
-//   { challenge: 'ways-to-reach-nth-stair', params: ['n'] },
-//   { challenge: 'get-permutations', params: ['arr'] },
-//   { challenge: 'get-range-between', params: ['x', 'y'] },
-// ];
+//  ********************************* warning: script execution site
 
-const challenges = [
-  { challenge: 'date-stamp', params: ['func'] },
-  { challenge: 'censor', params: [] },
-  { challenge: 'create-secret-holder', params: ['secret'] },
-  { challenge: 'call-times', params: [] },
-  { challenge: 'russian-roulette', params: ['num'] },
-  { challenge: 'average', params: [] },
-  { challenge: 'make-func-tester', params: ['arrOfTests'] },
-  { challenge: 'make-history', params: ['limit'] },
-  { challenge: 'blackjack', params: ['array'] },
-];
+// const scriptArg = {};
+// initializeChallenges(scriptArg);
 
-function initializeChallenges(topic, challenges) {
-  const topicPath = path.join(__filename, '..', '..', topic, 'exercises');
+//  *********************************
+
+/**
+ * Script to generate directory of challenges
+ * Each challenge initialised with its own directory containing three files
+ * e.g. challenge_name.js challenge_name.test.js solution.js
+ * Each file also gets populated with some starter code – see helper functions below
+ * @param {Object} obj - destructured to mimic named arguments
+ * @param {string} obj.topic - the topic the challenges relate to e.g. 'recursion'
+ * @param {Array.<{challenge: string, params: Array.<string>}>} obj.challenges - where the challenge meta-data lives
+ * @param {boolean} [obj.extensions=false] - flag for whether challenges belong in extensions directory
+
+ */
+function initializeChallenges({ topic, challenges, extensions = false }) {
+  const topicPath = path.join(
+    __filename,
+    '..',
+    '..',
+    extensions ? 'extensions' : '',
+    topic,
+    'exercises'
+  );
 
   challenges.forEach(({ challenge: challengeDir, params }, index) => {
-    const challengePath = `${topicPath}/ch${index + 12}-${challengeDir}`;
+    const challengePath = `${topicPath}/ch${index + 1}-${challengeDir}`;
     fs.mkdirSync(challengePath);
 
     const baseFileName = dirToFileName(challengeDir);
@@ -87,10 +87,6 @@ function testStarter(funcName, params) {
 
 function starterInstructions(test, index) {
   return `/*\nChallenge ${
-    index + 12
+    index + 1
   }\n\nTo test your solution run\nnpm t ${test}\nfrom the command line\n\n*/\n\n`;
 }
-
-//  ********************************* script execution site
-
-// initializeChallenges('closures', challenges);

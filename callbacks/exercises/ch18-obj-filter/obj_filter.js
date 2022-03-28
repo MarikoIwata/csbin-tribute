@@ -14,6 +14,6 @@ from the command line
 
 */
 
-function objFilter(obj, callback) {}
+function objFilter(object, callback) {}
 
 module.exports = objFilter;
