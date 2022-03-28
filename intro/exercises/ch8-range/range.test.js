@@ -1,6 +1,6 @@
 let range;
 range = require('./range');
-// range = require('./solution') // uncomment to test solution file
+// range = require('./solution'); // uncomment to test solution file
 
 describe('range(start, end)', () => {
   const result = range(1, 4);
