@@ -67,13 +67,13 @@ challenges.closures = [
 challenges.async = [];
 
 challenges.extensions.callbacks = [
-  { challenge: 'compose', params: ['funcs'] },
   { challenge: 'toNumbers', params: ['array'] },
 ];
 
 challenges.extensions.closures = [
   { challenge: 'memoize', params: ['func'] },
   { challenge: 'not', params: ['func'] },
+  { challenge: 'compose', params: ['funcs'] },
 ];
 
 challenges.extensions.iteration = [
