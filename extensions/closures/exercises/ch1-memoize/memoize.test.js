@@ -3,6 +3,7 @@ memoize = require('./memoize');
 // memoize = require('./solution'); // uncomment to test solution file
 const unique = require('../../../../utils/values/uniques');
 const getNumCbCalls = require('../../../../utils/mocks/get_num_cb_calls');
+const isObject = require('../../../../utils/values/is_object');
 
 const mocks = {
   func: function square(x) {
@@ -26,6 +27,15 @@ describe('memoize(func)', () => {
     expect(memoizedFunc).toBeInstanceOf(Function);
   });
 
+  test('returned function should return the same values as the passed-in func', () => {
+    args.forEach((arg, index) => {
+      const expectedValue = mocks.expectedResults[index];
+      const returnedValue = memoizedFunc(arg);
+
+      expect(returnedValue).toBe(expectedValue);
+    });
+  });
+
   test('the returned a function should check a cache before computing its output value', () => {
     args.forEach((arg) => {
       memoizedFunc(arg);
@@ -46,12 +56,8 @@ describe('memoize(func)', () => {
     expect(callsToFunc).toBe(1);
   });
 
-  test('returned function should return the same values as the passed-in func', () => {
-    args.forEach((arg, index) => {
-      const expectedValue = mocks.expectedResults[index];
-      const returnedValue = memoizedFunc(arg);
-
-      expect(returnedValue).toBe(expectedValue);
-    });
+  test('the cache should be attached as a property on the returned function', () => {
+    expect(Object.hasOwn(memoizedFunc, 'cache')).toBe(true);
+    expect(isObject(memoizedFunc.cache)).toBe(true);
   });
 });
