@@ -10,7 +10,7 @@ csbin has collections of coding challenges organized by these topics:
 - Callbacks
 - Closures
 - Asynchronous JavaScript
-- Object-Orinted Programming
+- Object-Oriented Programming
 - Recursion
 
 I have found there is a lot of mileage in these challenges, even when one is no longer new to the topics.
