@@ -1,4 +1,6 @@
-const buildGreeting = require('./build_greeting');
+let buildGreeting;
+buildGreeting = require('./build_greeting');
+// buildGreeting = require('./solution'); // uncomment to test solution file
 
 describe('buildGreeting() challenge', () => {
   test('should return appropriate greeting based on passed-in arguments', () => {
