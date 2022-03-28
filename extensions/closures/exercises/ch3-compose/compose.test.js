@@ -2,6 +2,8 @@ let compose;
 compose = require('./compose');
 // compose = require('./solution'); // uncomment to test solution file
 
+// shoutout to the Ramda.js docs for these mocks
+// https://ramdajs.com/docs/#compose
 const mocks = {
   toUpper: (str) => str.toUpperCase(),
   add: (x) => (y) => x + y,
