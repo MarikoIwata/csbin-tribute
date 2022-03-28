@@ -1,6 +1,20 @@
 const challenges = {};
 challenges.extensions = {};
 
+challenges.intro = [
+  { challenge: 'my-index-of', params: ['array', 'elem'] },
+  { challenge: 'unique', params: ['array'] },
+  { challenge: 'longest-word', params: ['sentence'] },
+  { challenge: 'disemvowel', params: ['string'] },
+  { challenge: 'divisible-by-five-pair-sum', params: ['array'] },
+  { challenge: 'highest-score', params: ['students'] },
+  { challenge: 'least-common-multiple', params: ['num1', 'num2'] },
+  { challenge: 'array-builder', params: ['count'] },
+  { challenge: 'object-builder', params: ['count'] },
+  { challenge: 'secret-cipher', params: ['sentence', 'cipher'] },
+  { challenge: 'passing-students', params: ['students'] },
+];
+
 challenges.callbacks = [
   { challenge: 'add-two', params: ['num'] },
   { challenge: 'add-s', params: ['word'] },

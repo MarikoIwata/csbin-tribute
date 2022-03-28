@@ -4,6 +4,7 @@ const challenges = require('../challenge_meta_data');
 
 //  ********************************* warning: script execution site
 
+// const {} = challenges;
 // const scriptArg = {};
 // initializeChallenges(scriptArg);
 
