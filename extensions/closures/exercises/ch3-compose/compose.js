@@ -3,7 +3,7 @@ Challenge 3
 
 Create a function compose that expects an arbitrary number of functions
 as arguments – comma separated, NOT an array.
-Note:  Also all of the functions only accept one argument, except the last one 
+Note:  all of the functions only expect one argument, except the last one 
 which can accept any number (take a look at the tests if this is confusing).
 
 compose should return a function, which when called passes its arguments to
