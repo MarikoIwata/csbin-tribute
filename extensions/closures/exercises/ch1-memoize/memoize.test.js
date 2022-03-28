@@ -27,12 +27,11 @@ describe('memoize(func)', () => {
   });
 
   test('the returned a function should check a cache before computing its output value', () => {
-    const uniqueArgs = unique(args);
-
     args.forEach((arg) => {
       memoizedFunc(arg);
     });
 
+    const uniqueArgs = unique(args);
     const callsToFunc = getNumCbCalls(mockFunc);
     expect(callsToFunc).toBe(uniqueArgs.length);
   });

@@ -1,16 +1,21 @@
 /*
 Challenge 1
 
-Create a function memoize that receives a function as input
-Memoize should also return a function.
-Whenever the returned function gets called, it should call the passed-in
-function and store its input and output as a key/value pair in a cache object 
-The cache object must be hidden from the global slope through closure.
-If the cache already has a key
-You may assume that the memoized function takes only one argument
-and that it is a primitive. Memoize should return a function that when called,
-will check if it has already computed the result for the given argument
-and return that value instead of recomputing it.
+Create a function memoize that receives a function (func) as input
+and also returns a function. You may assume that the func only expects
+one argument.
+
+Whenever the returned function gets called, it should check a cache 
+to see if it has already computed the result for the given argument.
+If it has, it should retrieve it from the cache rather than invoking func.
+If it hasn't it should store the argument and output as a key/value 
+pair in the cache, and then return the output.
+
+The cache must be hidden from the global slope through closure.
+
+Note: the tests are quite picky about what kind of values can be stored
+and retrieved from the cache. You may have to consider how to appropriately
+store, check for, and retrieve falsy values...
 
 To test your solution run
 npm t memoize
