@@ -1,4 +1,5 @@
 function blackjack(array) {
+  const BLACKJACK = 21;
   const iterator = array[Symbol.iterator]();
 
   return function dealer(x, y) {
@@ -10,17 +11,12 @@ function blackjack(array) {
       if (busted) return 'you are done!';
 
       playerCalls += 1;
+      // on first call: simply return sum
       if (playerCalls == 1) return sum;
-      if (playerCalls == 2) {
-        sum += iterator.next().value;
-        if (sum > 21) {
-          busted = true;
-          return 'bust';
-        } else return sum;
-      }
 
+      // otherwise increment sum by next array value and check
       sum += iterator.next().value;
-      if (sum > 21) {
+      if (sum > BLACKJACK) {
         busted = true;
         return 'bust';
       }
