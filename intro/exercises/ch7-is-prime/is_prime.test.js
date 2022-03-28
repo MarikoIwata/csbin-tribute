@@ -1,4 +1,6 @@
-const isPrime = require('./is_prime');
+let isPrime;
+isPrime = require('./is_prime');
+// isPrime = require('./solution'); // uncomment to test solution file
 
 describe('isPrime(number)', () => {
   test('returns boolean indicating whether number is a prime number', () => {
