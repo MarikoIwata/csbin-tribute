@@ -1,4 +1,6 @@
-const lastLetter = require('./last_letter');
+let lastLetter;
+lastLetter = require('./last_letter');
+// lastLetter = require('./solution'); // uncomment to test the solution file
 
 describe('lastLetter(word) challenge', () => {
   test('should return last character of passed-in string', () => {
