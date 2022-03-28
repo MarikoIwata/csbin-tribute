@@ -10,8 +10,6 @@
  
  * =========== */
 
-function letterExists(word, letter) {
-  return word.includes(letter);
-}
+function letterExists(word, letter) {}
 
 module.exports = letterExists;
