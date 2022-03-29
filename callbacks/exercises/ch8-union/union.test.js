@@ -2,23 +2,21 @@ let union;
 union = require('./union');
 // union = require('./solution'); // uncomment to test solution file
 
-const mocks = {
-  arg: [
+describe('union(arrays)', () => {
+  const data = [
     [5, 10, 15],
     [15, 88, 1, 5, 7],
     [100, 15, 10, 1, 5],
-  ],
-  expectedOutput: [5, 10, 15, 88, 1, 7, 100],
-};
+  ];
+  const expected = [5, 10, 15, 88, 1, 7, 100];
 
-describe('union(arrays) challenge', () => {
-  const result = union(mocks.arg);
+  const result = union(data);
 
   test('should return an array', () => {
-    expect(Array.isArray(result)).toBe(true);
+    expect(result).toBeInstanceOf(Array);
   });
 
-  test('array should contain all values of the passed-in arrays', () => {
-    expect(result).toEqual(mocks.expectedOutput);
+  test('returned array should contain all values of the passed-in arrays', () => {
+    expect(result).toEqual(expected);
   });
 });

@@ -3,7 +3,6 @@ intersection = require('./intersection');
 // intersection = require('./solution'); // uncomment to test solution file
 
 describe('intersection(arrays)', () => {
-  // Arrange
   const data = [
     [5, 10, 15, 20],
     [15, 88, 1, 5, 7],
@@ -11,10 +10,8 @@ describe('intersection(arrays)', () => {
   ];
   const expected = [5, 15];
 
-  // Act
   const result = intersection(data);
 
-  // Assert
   test('should return an array', () => {
     expect(result).toBeInstanceOf(Array);
   });
