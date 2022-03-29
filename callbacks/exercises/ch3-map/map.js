@@ -12,11 +12,11 @@ map([1,2,3,4,5], multiplyByTwo); //-> [2,4,6,8,10]
 multiplyByTwo(1); //-> 2
 multiplyByTwo(2); //-> 4 
 
-To test your solution run
-npm t map
-from the command line
-
 */
+
+// To test your solution run
+// npm t ".*/map.test.js"
+// from the command line
 
 function map(array, callback) {}
 
