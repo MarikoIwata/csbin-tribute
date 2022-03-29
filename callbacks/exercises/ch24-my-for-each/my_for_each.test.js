@@ -50,9 +50,7 @@ describe('myForEach(array, callback)', () => {
   test('should not invoke the callback for uninitialized values / empty items', () => {
     myForEach(mocks.arrayWithEmpties, callback);
 
-    const cbCalls = callback.mock.calls.length;
-
-    expect(cbCalls).toBe(mocks.numNonEmptyElements);
+    expect(callback).toHaveBeenCalledTimes(mocks.numNonEmptyElements);
   });
 
   test('if a thisArg argument is provided, it should be used as callback\'s "this" value', () => {
