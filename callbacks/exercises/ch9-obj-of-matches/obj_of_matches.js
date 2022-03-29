@@ -14,7 +14,6 @@ from the command line
 
 */
 
-// Challenge 9
 function objOfMatches(array1, array2, callback) {}
 
 module.exports = objOfMatches;
