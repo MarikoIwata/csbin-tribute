@@ -1,10 +1,16 @@
 /* 
 Challenge 4
 
-Create a function called forEach that takes an array and a callback, 
-and runs the callback on each element of the array. forEach does not return anything.
+Create a function called forEach that takes up to 3 arguments
+1: an array 
+2: a callback function
+3. thisArg (optional) – the value to use as 'this' when executing callback. 
+You'll run into this when getting the final test to pass (see additional note below).
 
-The tests require you to handle all of the callback arguments that the 
+forEach should call the callback on each element of the array. f
+orEach does not return anything.
+
+The last test requires you to handle all of the callback arguments that the 
 real .forEach() method allows. Link to docs:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
 

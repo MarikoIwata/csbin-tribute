@@ -1,16 +1,19 @@
 /*
 Challenge 3
-Create a function called map that takes two inputs: 
-1. an array of numbers (a list of numbers) 
+
+Create a function called map that takes up to 3 inputs: 
+1. an array 
 2. a 'callback' function - a function that is applied to each element 
-of the array (inside of the function 'map')
+of the array
+3. thisArg (optional) – the value to use as 'this' when executing callback. 
+You'll run into this when getting the final test to pass (see additional note below).
 
-Have map return a new array filled with numbers that are the result 
-of using the 'callback' function on each element of the input array.
+map should return a new array filled with elements that are the result 
+of calling the 'callback' function on each element of the input array.
 
-map([1,2,3,4,5], multiplyByTwo); //-> [2,4,6,8,10]
-multiplyByTwo(1); //-> 2
-multiplyByTwo(2); //-> 4 
+The final test requires that you handle all of the callback arguments 
+that the real .map() method allows. Link to docs:
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
 
 */
 
