@@ -1,38 +1,42 @@
 let goodKeys;
-goodKeys = require('./good_keys');
-// goodKeys = require('./solution'); // uncomment to test solution file
+// goodKeys = require('./good_keys');
+goodKeys = require('./solution'); // uncomment to test solution file
 
-const mocks = {
-  obj: {
-    mac: 'priest',
-    dennis: 'calculating',
-    charlie: 'birdlaw',
-    dee: 'bird',
-    frank: 'warthog',
-  },
-  cb: jest.fn(function startsWithBird(str) {
-    return str.slice(0, 4).toLowerCase() === 'bird';
-  }),
-  expectedOutput: ['charlie', 'dee'],
-};
+function setup() {
+  return {
+    data: {
+      mac: 'priest',
+      dennis: 'calculating',
+      charlie: 'birdlaw',
+      dee: 'bird',
+      frank: 'warthog',
+    },
+    mockCb: jest.fn(function startsWithBird(str) {
+      return str.slice(0, 4).toLowerCase() === 'bird';
+    }),
+    expected: ['charlie', 'dee'],
+  };
+}
 
-describe('goodKeys(object, callback)', () => {
-  const { obj, cb } = mocks;
+describe('goodKeys(object, callback) should:', () => {
+  const { data, mockCb } = setup();
 
-  const result = goodKeys(obj, cb);
+  const result = goodKeys(data, mockCb);
 
-  test('should return an array', () => {
-    expect(Array.isArray(result)).toBe(true);
+  test('return an array', () => {
+    expect(result).toBeInstanceOf(Array);
   });
 
-  test('should perform the callback on each value', () => {
-    const numberOfValues = Object.keys(obj).length;
-    const numberOfCbCalls = cb.mock.calls.length;
+  test('call the callback with each object value', () => {
+    const values = Object.values(data);
+    const mockCbArgs = mockCb.mock.calls.flat();
 
-    expect(numberOfCbCalls).toBe(numberOfValues);
+    expect(mockCbArgs).toEqual(values);
   });
 
-  test('returned array should contain keys whose associated values yielded true from the callback', () => {
-    expect(result).toEqual(mocks.expectedOutput);
+  test('returned array should contain the keys whose values returned true when passed to callback', () => {
+    const { expected } = setup();
+
+    expect(result).toEqual(expected);
   });
 });
