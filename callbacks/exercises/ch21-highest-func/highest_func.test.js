@@ -9,7 +9,7 @@ const mocks = {
     inverse: jest.fn((n) => n * -1),
   },
   args: [5, 11, -20],
-  expectedResults: ['addTen', 'double', 'inverse'],
+  expected: ['addTen', 'double', 'inverse'],
 };
 
 describe('highestFunc(objOfFuncs, subject)', () => {
@@ -30,6 +30,6 @@ describe('highestFunc(objOfFuncs, subject)', () => {
   });
 
   test("the key's associated function should return the largest number when it receives subject as an argument", () => {
-    expect(results).toEqual(mocks.expectedResults);
+    expect(results).toEqual(mocks.expected);
   });
 });

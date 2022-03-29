@@ -2,44 +2,48 @@ let myForEach;
 myForEach = require('./my_for_each');
 // myForEach = require('./solution'); // uncomment to test solution file
 const arrayToNumbers = require('../../../utils/values/array_to_numbers');
-const getNthMockCbArg = require('../../../utils/mocks/get_nth_mock_cb_arg');
 
-let sum = 0; // for mocks.callback to mutate
-const mocks = {
-  array: [1, 2, 3],
-  arrayWithEmpties: [1, , 2, , 3],
-  numNonEmptyElements: 6,
-  callback: jest.fn(function addToSum(num) {
-    sum += num;
-  }),
-  thisAwareCb: jest.fn(function append(val) {
-    this.push(val);
-  }),
-  thisArg: [2, 4, 6],
-};
+let sum = 0; // for mockCb to mutate
 
-describe('myForEach(array, callback)', () => {
-  const { array, callback } = mocks;
+function setup() {
+  return {
+    sum: 0,
+    data: [1, 2, 3],
+    dataWithEmpties: [1, , 2, , 3],
+    nonEmpties: 3,
+    mockCb: jest.fn(function addToSum(num) {
+      sum += num;
+    }),
+    thisAwareCb: jest.fn(function append(val) {
+      this.push(val);
+    }),
+    thisArg: [2, 4, 6],
+  };
+}
 
-  const result = myForEach(array, callback);
+describe('myForEach(array, callback, thisArg)', () => {
+  const { data, mockCb } = setup();
 
-  test('should pass each array element to callback in order', () => {
-    const cbFirstArgs = getNthMockCbArg(callback, 1);
-    expect(cbFirstArgs).toEqual(array);
+  const result = myForEach(data, mockCb);
+
+  test('should call callback for each element in ascending index order', () => {
+    const elsToCb = mockCb.mock.calls.flatMap((call) => call[0]);
+
+    expect(elsToCb).toEqual(data);
   });
 
   test('should pass correct index as second argument to callback', () => {
-    const cbSecondArgs = getNthMockCbArg(callback, 2);
-    const indices = arrayToNumbers(Object.keys(array));
+    const indicesToCb = mockCb.mock.calls.flatMap((call) => call[1]);
+    const arrayIndices = arrayToNumbers(Object.keys(data));
 
-    expect(cbSecondArgs).toEqual(indices);
+    expect(indicesToCb).toEqual(arrayIndices);
   });
 
   test('should pass array as third argument to callback ', () => {
-    const cbThirdArgs = getNthMockCbArg(callback, 3);
+    const arraysToCb = mockCb.mock.calls.map((call) => call[2]);
 
-    cbThirdArgs.forEach((thirdArg) => {
-      expect(thirdArg).toStrictEqual(array);
+    arraysToCb.forEach((arrayArg) => {
+      expect(arrayArg).toEqual(data);
     });
   });
 
@@ -48,17 +52,19 @@ describe('myForEach(array, callback)', () => {
   });
 
   test('should not invoke the callback for uninitialized values / empty items', () => {
-    myForEach(mocks.arrayWithEmpties, callback);
+    const { mockCb, dataWithEmpties, nonEmpties } = setup(); // reset mock callback
 
-    expect(callback).toHaveBeenCalledTimes(mocks.numNonEmptyElements);
+    myForEach(dataWithEmpties, mockCb);
+
+    expect(mockCb).toHaveBeenCalledTimes(nonEmpties);
   });
 
   test('if a thisArg argument is provided, it should be used as callback\'s "this" value', () => {
-    const { thisArg } = mocks;
+    const { thisAwareCb, thisArg } = setup();
     const thisArgCopy = [...thisArg];
 
-    myForEach(array, mocks.thisAwareCb, thisArg);
+    myForEach(data, thisAwareCb, thisArg);
 
-    expect(thisArg).toEqual([...thisArgCopy, ...array]);
+    expect(thisArg).toEqual([...thisArgCopy, ...data]);
   });
 });

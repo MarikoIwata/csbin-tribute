@@ -3,7 +3,7 @@ rating = require('./rating');
 // rating = require('./solution'); // uncomment to test solution file
 
 const mocks = {
-  funcsArray: [
+  mockCbs: [
     jest.fn(function isEven(x) {
       return x % 2 === 0;
     }),
@@ -17,20 +17,20 @@ const mocks = {
       return x.toString().includes('6');
     }),
   ],
-  args: [64, 66],
-  expectedResults: [100, 75],
+  data: [64, 66],
+  expected: [100, 75],
 };
 
 describe('rating(arrOfFuncs, value)', () => {
   const {
-    funcsArray,
-    args: [arg1, arg2],
+    mockCbs,
+    data: [value1, value2],
   } = mocks;
 
-  const results = [rating(funcsArray, arg1), rating(funcsArray, arg2)];
+  const results = [rating(mockCbs, value1), rating(mockCbs, value2)];
 
   test('should call all of the functions in the array', () => {
-    funcsArray.forEach((func) => {
+    mockCbs.forEach((func) => {
       expect(func).toHaveBeenCalled();
     });
   });
@@ -47,6 +47,6 @@ describe('rating(arrOfFuncs, value)', () => {
   });
 
   test('should return percentage of function calls that returned true', () => {
-    expect(results).toEqual(mocks.expectedResults);
+    expect(results).toEqual(mocks.expected);
   });
 });

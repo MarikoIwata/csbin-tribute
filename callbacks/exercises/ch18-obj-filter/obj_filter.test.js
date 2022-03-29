@@ -4,28 +4,31 @@ objFilter = require('./obj_filter');
 const isObject = require('../../../utils/values/is_object');
 
 const mocks = {
-  object: {
+  data: {
     6: 3,
     2: 1,
     12: 4,
   },
-  callback: jest.fn((x) => x / 2),
-  expectedResult: { 2: 1, 6: 3 },
+  mockCb: jest.fn(function half(x) {
+    return x / 2;
+  }),
+  expected: { 2: 1, 6: 3 },
 };
 
 describe('objectFilter(obj, callback)', () => {
-  const { object, callback } = mocks;
-  const result = objFilter(object, callback);
+  const { data, mockCb } = mocks;
+
+  const result = objFilter(data, mockCb);
 
   test('should return an object', () => {
     expect(isObject(result)).toBe(true);
   });
 
   test('the returned object should be a new object', () => {
-    expect(result).not.toBe(object);
+    expect(result).not.toBe(data);
   });
 
   test('object should only contain key/value pairs where value === callback(key)', () => {
-    expect(result).toEqual(mocks.expectedResult);
+    expect(result).toEqual(mocks.expected);
   });
 });
