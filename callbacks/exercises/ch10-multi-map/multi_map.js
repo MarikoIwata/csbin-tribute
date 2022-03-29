@@ -12,11 +12,8 @@ To test your solution run
 npm t multi_map
 from the command line
 
-
 */
 
-// Challenge 10
 function multiMap(arrVals, arrCallbacks) {}
 
-// console.log(multiMap(['catfood', 'glue', 'beer'], [function(str) { return str.toUpperCase(); }, function(str) { return str[0].toUpperCase() + str.slice(1).toLowerCase(); }, function(str) { return str + str; }]));
-// should log: { catfood: ['CATFOOD', 'Catfood', 'catfoodcatfood'], glue: ['GLUE', 'Glue', 'glueglue'], beer: ['BEER', 'Beer', 'beerbeer'] }
+module.exports = multiMap;
