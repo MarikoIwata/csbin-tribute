@@ -2,26 +2,34 @@ let commutative;
 commutative = require('./commutative');
 // commutative = require('./solution'); // uncomment to test solution file
 
-const mocks = {
-  funcArgs: {
-    multBy3: jest.fn((n) => n * 3),
-    divBy4: jest.fn((n) => n / 4),
-    subtract5: jest.fn((n) => n - 5),
-  },
-  valueArgs: [11, 10, 48],
-  expectedResults: [true, false, false],
-};
+function setup() {
+  return {
+    mockMultBy3: jest.fn(function multBy3(n) {
+      return n * 3;
+    }),
+    mockDivBy4: jest.fn(function divBy4(n) {
+      return n / 4;
+    }),
+    mockSubtract5: jest.fn(function subtract5(n) {
+      return n - 5;
+    }),
+    data: [11, 10, 48],
+    expected: [true, false, false],
+  };
+}
 
-describe('commutative(func1, fun2, value)', () => {
+describe('commutative(func1, func2, value)', () => {
   const {
-    funcArgs: { multBy3, divBy4, subtract5 },
-    valueArgs,
-  } = mocks;
+    mockDivBy4,
+    mockMultBy3,
+    mockSubtract5,
+    data: [value1, value2, value3],
+  } = setup();
 
   const results = [
-    commutative(multBy3, divBy4, valueArgs[0]),
-    commutative(multBy3, subtract5, valueArgs[1]),
-    commutative(divBy4, subtract5, valueArgs[2]),
+    commutative(mockMultBy3, mockDivBy4, value1),
+    commutative(mockMultBy3, mockSubtract5, value2),
+    commutative(mockDivBy4, mockSubtract5, value3),
   ];
 
   test('should return a boolean', () => {
@@ -31,6 +39,8 @@ describe('commutative(func1, fun2, value)', () => {
   });
 
   test('should return true if the operations are commutative, and false otherwise', () => {
-    expect(results).toEqual(mocks.expectedResults);
+    const { expected } = setup();
+
+    expect(results).toEqual(expected);
   });
 });
