@@ -2,34 +2,49 @@ let prioritize;
 prioritize = require('./prioritize');
 // prioritize = require('./solution'); // uncomment to test solution file
 
-const mocks = {
-  array: ['curb', 'rickandmorty', 'Seinfeld', 'sunny', 'friends', 'sea'],
-  callback: function startsWithS(str) {
-    return str[0] === 's' || str[0] === 'S';
-  },
-  expectedResult: [
-    'Seinfeld',
-    'sunny',
-    'sea',
-    'curb',
-    'rickandmorty',
-    'friends',
-  ],
-};
+function setup() {
+  return {
+    array: [
+      'curb',
+      'rickandmorty',
+      'Seinfeld',
+      'sunny',
+      'friends',
+      'sea',
+    ],
+    mockCb: jest.fn(function startsWithS(str) {
+      return str[0] === 's' || str[0] === 'S';
+    }),
+    expected: [
+      'Seinfeld',
+      'sunny',
+      'sea',
+      'curb',
+      'rickandmorty',
+      'friends',
+    ],
+  };
+}
 
 describe('prioritize(array, callback)', () => {
-  const { array, callback, expectedResult } = mocks;
-  const returnedValue = prioritize(array, callback);
+  const { array, mockCb } = setup();
 
-  test('should return an array', () => {
-    expect(Array.isArray(returnedValue)).toBe(true);
-  });
+  const result = prioritize(array, mockCb);
 
   test('should return a new array', () => {
-    expect(returnedValue).not.toBe(array);
+    expect(result).toBeInstanceOf(Array);
+    expect(result).not.toBe(array);
   });
 
-  test('returned array should contain elements the yielded true first, and those that yielded false after', () => {
-    expect(returnedValue).toEqual(expectedResult);
+  test('should call the callback on each element', () => {
+    const mockCbCalls = mockCb.mock.calls.length;
+
+    expect(mockCbCalls).toBeGreaterThanOrEqual(array.length);
+  });
+
+  test('elements that returned true when passed to callback should come before those that returned false', () => {
+    const { expected } = setup();
+
+    expect(result).toEqual(expected);
   });
 });
