@@ -1,5 +1,9 @@
 let map;
 map = require('./map');
+
+// uncomment line below to test your mapWith solution from challenge 5
+// map = require('../ch5-map-with/map_with');
+
 // map = require('./solution'); // uncomment to test solution file
 
 describe('map(array, callback)', () => {
@@ -14,11 +18,8 @@ describe('map(array, callback)', () => {
   const result = map(data, mockCb);
 
   // Assert
-  test('should return an array', () => {
+  test('should return a new array', () => {
     expect(result).toBeInstanceOf(Array);
-  });
-
-  test('the returned array should be a new array', () => {
     expect(result).not.toBe(data);
   });
 
