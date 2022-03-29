@@ -2,42 +2,79 @@ let reduce;
 reduce = require('./reduce');
 // reduce = require('./solution'); // uncomment to test solution file
 
-const mocks = {
-  numbers: [1, 2, 3, 4, 5],
-  sum: 15,
-  initialNum: 10,
-  strings: ['h', 'e', 'l', 'l', 'o'],
-  word: 'hello',
-  initialString: 'Oh ',
-  cb: function add(x, y) {
-    return x + y;
-  },
-};
+function setup() {
+  return {
+    numbers: [1, 2, 3, 4, 5],
+    initialNum: 10,
+    expectedSums: [15, 25],
+    mockAdd: jest.fn(function add(x, y) {
+      return x + y;
+    }),
 
-describe('reduce() challenge', () => {
-  const { numbers, strings, cb, sum, word } = mocks;
+    strings: ['h', 'e', 'l', 'l', 'o'],
+    initialStr: 'Oh ',
+    expectedStrings: ['HELLO', 'OH HELLO'],
+    mockUpperCase: jest.fn(function upperCase(accumulator, string) {
+      return `${(accumulator + string).toUpperCase()}`;
+    }),
+  };
+}
 
-  test('should return a single value', () => {
-    const returnedNum = reduce(numbers, cb);
-    const returnedStr = reduce(strings, cb);
+describe('reduce(array, callback, initialValue) should:', () => {
+  const {
+    numbers,
+    strings,
+    initialNum,
+    initialStr,
+    mockAdd,
+    mockUpperCase,
+  } = setup();
 
-    expect(returnedNum).toEqual(sum);
-    expect(typeof returnedNum).toBe('number');
+  test('return a single value', () => {
+    const {
+      expectedSums: [expectedSum],
+      expectedStrings: [expectedString],
+    } = setup();
 
-    expect(returnedStr).toEqual(word);
-    expect(typeof returnedStr).toEqual('string');
+    const resultSum = reduce(numbers, mockAdd);
+    const resultString = reduce(strings, mockUpperCase);
+
+    expect(resultSum).toBe(expectedSum);
+    expect(resultString).toBe(expectedString);
   });
 
-  test('should handle initialValue argument', () => {
-    const { initialNum, initialString } = mocks;
+  test('call callback array.length - 1 times if initialValue argument not provided', () => {
+    const { mockAdd, mockUpperCase } = setup(); // reset mock functions
+    const expected = numbers.length - 1; // numbers and strings arrays conveniently have the same length
 
-    const returnedNum = reduce(numbers, cb, initialNum);
-    const returnedStr = reduce(strings, cb, initialString);
+    reduce(numbers, mockAdd);
+    reduce(strings, mockUpperCase);
 
-    expect(returnedNum).toEqual(sum + initialNum);
-    expect(typeof returnedNum).toBe('number');
+    expect(mockAdd).toHaveBeenCalledTimes(expected);
+    expect(mockUpperCase).toHaveBeenCalledTimes(expected);
+  });
 
-    expect(returnedStr).toEqual(initialString + word);
-    expect(typeof returnedStr).toEqual('string');
+  test('return correct value when initialValue argument provided', () => {
+    const {
+      expectedSums: [, expectedSum],
+      expectedStrings: [, expectedStr],
+    } = setup();
+
+    const resultSum = reduce(numbers, mockAdd, initialNum);
+    const resultString = reduce(strings, mockUpperCase, initialStr);
+
+    expect(resultSum).toBe(expectedSum);
+    expect(resultString).toBe(expectedStr);
+  });
+
+  test('call callback array.length times when initialValue argument provided', () => {
+    const { mockAdd, mockUpperCase } = setup(); // reset mock functions
+    const expected = numbers.length;
+
+    reduce(numbers, mockAdd, initialNum);
+    reduce(strings, mockUpperCase, initialStr);
+
+    expect(mockAdd).toHaveBeenCalledTimes(expected);
+    expect(mockUpperCase).toHaveBeenCalledTimes(expected);
   });
 });
