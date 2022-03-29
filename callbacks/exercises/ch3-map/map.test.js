@@ -2,7 +2,7 @@ let map;
 map = require('./map');
 // map = require('./solution'); // uncomment to test solution file
 
-describe('map(array, callback) challenge', () => {
+describe('map(array, callback)', () => {
   // Arrange
   const data = [1, 2, 3];
   const mockCb = jest.fn(function doubleAndAddIndex(num, index) {
