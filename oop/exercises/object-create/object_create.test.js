@@ -1,5 +1,5 @@
 const { personStore, person } = require('./object_create'); // comment out when testing solution file
-// const { personStore, person} = require('./solution'); // uncomment to test solution file
+// const { personStore, person } = require('./solution'); // uncomment to test solution file
 const isObject = require('../../../utils/values/is_object');
 
 describe('Using Object.create', () => {
@@ -15,12 +15,35 @@ describe('Using Object.create', () => {
         test('greet should return "hello"', () => {
             expect(personStore.greet()).toBe('hello');
         });
+
+        test('should have an introduce property', () => {
+            expect(Object.hasOwn(personStore, 'greet')).toBe(true);
+        });
+
+        test('introduce should be a function', () => {
+            expect(personStore.introduce).toBeInstanceOf(Function);
+        });
+
+        test("introduce should return a greeting including the person's name", () => {
+            const result = person('Marina', 32).introduce();
+            const expected = 'Hi, my name is Marina';
+
+            expect(result).toBe(expected);
+
+            // Check solution hasn't hard coded name!
+            const introduceFn = personStore.introduce.toString();
+            const cheat = introduceFn.includes('Marina');
+
+            expect(cheat).toBe(false);
+        });
     });
 
     describe('person(name, age)', () => {
-        test('should create an object using Object.create', () => {
+        test('should create an object using Object.create with personStore', () => {
             const personFn = person.toString();
+
             expect(personFn.includes('Object.create')).toBe(true);
+            expect(personFn.includes('personStore')).toBe(true);
         });
 
         test('should return an object with name and age properties', () => {
