@@ -6,7 +6,7 @@ describe('range(start, end)', () => {
   const result = range(1, 4);
 
   test('should return an array', () => {
-    expect(Array.isArray(result)).toBe(true);
+    expect(result).toBeInstanceOf(Array);
   });
 
   test('the array should contain integers in increasing order from start to end inclusive', () => {
