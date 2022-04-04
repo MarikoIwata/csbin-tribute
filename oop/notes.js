@@ -1,47 +1,15 @@
 /****************************************************************
-                    USING THE 'NEW' KEYWORD
-****************************************************************/
-
-/*** CHALLENGE 5 ***/
-
-function PersonConstructor() {
-  // add code here
-}
-
-// /********* Uncomment this line to test your work! *********/
-const simon = new PersonConstructor();
-// simon.greet(); // -> Logs 'hello'
-
-/*** CHALLENGE 6 ***/
-
-function personFromConstructor(name, age) {
-  // add code here
-}
-
-const mike = personFromConstructor('Mike', 30);
-
-// /********* Uncomment these lines to test your work! *********/
-// console.log(mike.name); // -> Logs 'Mike'
-// console.log(mike.age); //-> Logs 30
-// mike.greet(); //-> Logs 'hello'
-
-/*** CHALLENGE 7 ***/
-// add code here
-
-// mike.introduce(); // -> Logs 'Hi, my name is Mike'
-
-/****************************************************************
                         USING ES6 CLASSES
 ****************************************************************/
 
 /*** CHALLENGE 8 ***/
 
 class PersonClass {
-  constructor() {
-    // add code here
-  }
+    constructor() {
+        // add code here
+    }
 
-  // add code here
+    // add code here
 }
 
 // /********* Uncomment this line to test your work! *********/
@@ -62,29 +30,29 @@ const george = new PersonClass();
 ****************************************************************/
 
 const userFunctionStore = {
-  sayType: function () {
-    console.log('I am a ' + this.type);
-  },
+    sayType: function () {
+        console.log('I am a ' + this.type);
+    },
 };
 
 function userFactory(name, score) {
-  let user = Object.create(userFunctionStore);
-  user.type = 'User';
-  user.name = name;
-  user.score = score;
-  return user;
+    let user = Object.create(userFunctionStore);
+    user.type = 'User';
+    user.name = name;
+    user.score = score;
+    return user;
 }
 
 /*** CHALLENGE 10 ***/
 
 const adminFunctionStore = {
-  // add code here
+    // add code here
 };
 
 /*** CHALLENGE 11, 12, 13 ***/
 
 function adminFactory(name, score) {
-  // add code here
+    // add code here
 }
 
 /*** CHALLENGE 14 ***/
@@ -101,19 +69,19 @@ EXTENSION: MIXINS
 ****************************************************************/
 
 class Dog {
-  constructor() {
-    this.legs = 4;
-  }
-  speak() {
-    console.log('Woof!');
-  }
+    constructor() {
+        this.legs = 4;
+    }
+    speak() {
+        console.log('Woof!');
+    }
 }
 
 const robotMixin = {
-  skin: 'metal',
-  speak: function () {
-    console.log(`I have ${this.legs} legs and am made of ${this.skin}`);
-  },
+    skin: 'metal',
+    speak: function () {
+        console.log(`I have ${this.legs} legs and am made of ${this.skin}`);
+    },
 };
 
 let robotFido = new Dog();
