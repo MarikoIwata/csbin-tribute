@@ -19,15 +19,7 @@ to a property by the same name. Person should also have a method called greet
 that returns the string 'hello'.
 */
 
-class Person {
-  constructor(name) {
-    this.name = name;
-  }
-
-  greet() {
-    return 'hello';
-  }
-}
+class Person {}
 
 /*
 Challenge 2
@@ -38,15 +30,7 @@ should have an introduce method. When called, introduce should return the string
 'Hi, my name is [name]'.
 */
 
-class Developer extends Person {
-  constructor(name) {
-    super(name);
-  }
-
-  introduce() {
-    return `Hi, my name is ${this.name}`;
-  }
-}
+class Developer {}
 
 module.exports = {
   Person,

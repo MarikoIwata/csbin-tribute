@@ -25,9 +25,40 @@ describe('ES6 Classes', () => {
     });
 
     test("greet should return 'hello'", () => {
-      const greetResult = result.greet();
+      expect(result.greet()).toBe('hello');
+    });
+  });
 
-      expect(greetResult).toBe('hello');
+  describe('Developer', () => {
+    const result = new Developer('Dom');
+    const developerBody = Developer.toString();
+
+    test("should use the 'class' and 'extends' keywords", () => {
+      const [firstWord, , thirdWord] = developerBody.split(' ');
+
+      expect(firstWord).toBe('class');
+      expect(thirdWord).toBe('extends');
+    });
+
+    test('instances should have a name property', () => {
+      expect(Object.hasOwn(result, 'name')).toBe(true);
+    });
+
+    test('instances should have access to a greet method ', () => {
+      expect(Object.hasOwn(result, 'greet')).toBe(false);
+      expect(Object.hasOwn(Developer.prototype, 'greet')).toBe(false);
+      expect(Object.hasOwn(Developer.__proto__.prototype, 'greet')).toBe(true);
+    });
+
+    test('instances should have access to an introduce method ', () => {
+      expect(Object.hasOwn(result, 'introduce')).toBe(false);
+      expect(Object.hasOwn(Developer.prototype, 'introduce')).toBe(true);
+    });
+
+    test('introduce should return the appropriate greeting', () => {
+      const expected = 'Hi, my name is Dom';
+
+      expect(result.introduce()).toBe(expected);
     });
   });
 });
