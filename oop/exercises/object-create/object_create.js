@@ -2,6 +2,10 @@
 
 Using Object.create
 
+To test your solutions run
+npm t object_create
+from the command line
+
 */
 
 /*
