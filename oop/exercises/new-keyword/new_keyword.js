@@ -20,29 +20,20 @@ with key/value pairs corresponding to the parameter/argument pairs for 'name' an
 Think about this...
 */
 
-function Person(name, age) {
-    this.name = name;
-    this.age = age;
-}
+function Person(name, age) {}
 
 /*
 Challenge 6
 
+Add a greet method to Person's prototype, so that objects created using
+new keyword + Person have ACCESS to it, but do not have it as a direct "own" property
+
+Example
+
+const me = new Person('Dom', 30); // -> { name: 'Dom, age: 30 }
+
+me.greet() // -> 'Hi, my name is Dom'
+
 */
 
-// function personFromConstructor(name, age) {
-// add code here
-// }
-
-// const mike = personFromConstructor('Mike', 30);
-
-// /********* Uncomment these lines to test your work! *********/
-// console.log(mike.name); // -> Logs 'Mike'
-// console.log(mike.age); //-> Logs 30
-// mike.greet(); //-> Logs 'hello'
-
-/*** CHALLENGE 7 ***/
-// add code here
-
-// mike.introduce(); // -> Logs 'Hi, my name is Mike'
 module.exports = Person;
