@@ -11,7 +11,7 @@ from the command line
 */
 
 /*
-Challenge 5
+Challenge 1
 
 Create a function Person that has parameters 'name' and 'age'
 When Person is called with the new keyword it should return an object
@@ -23,7 +23,7 @@ Think about this...
 function Person(name, age) {}
 
 /*
-Challenge 6
+Challenge 2
 
 Add a greet method to Person's prototype, so that objects created using
 new keyword + Person have ACCESS to it, but do not have it as a direct "own" property
