@@ -21,7 +21,7 @@ describe('Person(name, age)', () => {
         expect(result).toEqual(expected);
     });
 
-    test('returned object should have access do a greet method through Person.prototype', () => {
+    test('returned object should have access to a greet method through Person.prototype', () => {
         expect(Object.hasOwn(result, 'greet')).toBe(false);
         expect(Object.hasOwn(Person.prototype, 'greet')).toBe(true);
         expect(Person.prototype.greet).toBeInstanceOf(Function);
