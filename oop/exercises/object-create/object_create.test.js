@@ -17,7 +17,7 @@ describe('Using Object.create', () => {
         });
 
         test('should have an introduce property', () => {
-            expect(Object.hasOwn(personStore, 'greet')).toBe(true);
+            expect(Object.hasOwn(personStore, 'introduce')).toBe(true);
         });
 
         test('introduce should be a function', () => {
@@ -39,23 +39,21 @@ describe('Using Object.create', () => {
     });
 
     describe('person(name, age)', () => {
+        const result = person('Marina', 32);
+
         test('should create an object using Object.create with personStore', () => {
             const personFn = person.toString();
 
-            expect(personFn.includes('Object.create')).toBe(true);
-            expect(personFn.includes('personStore')).toBe(true);
+            expect(personFn.includes('Object.create(personStore)')).toBe(true);
         });
 
         test('should return an object with name and age properties', () => {
-            const result = person();
-
             expect(isObject(result)).toBe(true);
             expect(Object.hasOwn(result, 'name')).toBe(true);
             expect(Object.hasOwn(result, 'age')).toBe(true);
         });
 
         test('property values should mirror their parameter/argument pairs', () => {
-            const result = person('Marina', 32);
             const expected = { name: 'Marina', age: 32 };
 
             expect(result).toEqual(expected);
