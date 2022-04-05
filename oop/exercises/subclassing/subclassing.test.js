@@ -47,5 +47,13 @@ describe('Subclassing', () => {
       expect(adminFactoryBody.includes('.name = name')).toBe(false);
       expect(adminFactoryBody.includes('.score = score')).toBe(false);
     });
+
+    test("instances should have 'Admin' as their 'type' value", () => {
+      expect(result.type).toBe('Admin');
+    });
+
+    test('instances should have access to adminFunctionStore methods', () => {
+      expect(result.__proto__).toBe(adminFunctionStore);
+    });
   });
 });
