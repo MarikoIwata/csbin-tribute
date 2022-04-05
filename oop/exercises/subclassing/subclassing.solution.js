@@ -48,7 +48,7 @@ Challenge 2
 
 */
 
-adminFunctionStore.sharePublicMessage = function () {
+adminFunctionStore.sharePublicMessage = function sharePublicMessage() {
   return 'Welcome users!';
 };
 
