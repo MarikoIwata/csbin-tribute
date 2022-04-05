@@ -1,27 +1,4 @@
 /* =========== *
- * Challenge 9 *
- * ============ */
-
-function myIndexOf(array, ele) {
-  // your code here...
-}
-
-//myIndexOf([1, 2, 3, 4, 5], 5) //=> 4
-//myIndexOf(["a", "b", "c"], "a") //=> 0
-//myIndexOf(["a", "b", "c"], "d") //=> -1
-
-/* =========== *
- * Challenge 10 *
- * ============ */
-
-function unique(array) {
-  //your code goes here...
-}
-
-// unique([1, 1, 2, 3, 3]) => [1, 2, 3]
-// unique(["a", "a", "c", "aa", "b", "b"]) => ["a", "c", "aa", "b"]
-
-/* =========== *
  * Challenge 11 *
  * ============ */
 
