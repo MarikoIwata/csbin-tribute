@@ -1,5 +1,5 @@
 /*
-Challenge 10
+Challenge 18
 
 To test your solution run
 npm t secret_cipher
@@ -7,6 +7,6 @@ from the command line
 
 */
 
-function secretCipher(sentence,cipher) {}
+function secretCipher(sentence, cipher) {}
 
 module.exports = secretCipher;

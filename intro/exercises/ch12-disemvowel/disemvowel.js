@@ -1,5 +1,5 @@
 /*
-Challenge 4
+Challenge 12
 
 To test your solution run
 npm t disemvowel

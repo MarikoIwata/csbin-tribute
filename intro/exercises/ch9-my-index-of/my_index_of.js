@@ -1,8 +1,8 @@
 /*
-Challenge 1
-Create a function myIndexOf that takes two strings (string1 and string2). 
-It should behave identically to calling string1.indexOf(string2), EXCEPT that instead of returning -1
-if it cannot find string2, it should return `Error: "${string2}" not found`
+Challenge 9
+
+Create a function myIndexOf that takes an array and an element,
+and returns the index of the element in the array, or -1 if it doesn't exist.
 
 To test your solution run
 npm t my_index_of

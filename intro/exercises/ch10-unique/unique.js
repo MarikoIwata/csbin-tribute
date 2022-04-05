@@ -1,5 +1,5 @@
 /*
-Challenge 2
+Challenge 10
 
 To test your solution run
 npm t unique

@@ -1,5 +1,5 @@
 /*
-Challenge 6
+Challenge 14
 
 To test your solution run
 npm t highest_score

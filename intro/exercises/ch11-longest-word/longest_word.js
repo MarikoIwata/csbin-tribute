@@ -1,5 +1,5 @@
 /*
-Challenge 3
+Challenge 11
 
 To test your solution run
 npm t longest_word

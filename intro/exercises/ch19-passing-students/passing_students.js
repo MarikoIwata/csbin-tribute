@@ -1,5 +1,5 @@
 /*
-Challenge 11
+Challenge 19
 
 To test your solution run
 npm t passing_students

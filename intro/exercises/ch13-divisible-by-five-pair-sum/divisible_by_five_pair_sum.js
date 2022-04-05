@@ -1,5 +1,5 @@
 /*
-Challenge 5
+Challenge 13
 
 To test your solution run
 npm t divisible_by_five_pair_sum
