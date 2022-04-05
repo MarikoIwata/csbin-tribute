@@ -17,5 +17,10 @@ describe('Subclassing', () => {
       expect(adminFunctionStore.sayType).toBeInstanceOf(Function);
       expect(result).toBe(expected);
     });
+
+    test('should not have userFunctionStore methods as own properties', () => {
+      expect(Object.hasOwn(adminFunctionStore, 'sayType')).toBe(false);
+      expect(Object.hasOwn(adminFunctionStore.__proto__, 'sayType')).toBe(true);
+    });
   });
 });

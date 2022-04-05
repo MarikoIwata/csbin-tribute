@@ -68,8 +68,8 @@ function adminFactory(name, score) {
   this method directly in the adminFactory function.
 
   */
-console.log('adminFunctionStore:', adminFunctionStore.sayType());
-console.log('userFunctionStore:', userFunctionStore);
+// console.log('adminFunctionStore:', adminFunctionStore.sayType());
+// console.log('userFunctionStore:', userFunctionStore);
 
 // const adminFromFactory = adminFactory('Eva', 5);
 // console.log('adminFromFactory:', adminFromFactory);
