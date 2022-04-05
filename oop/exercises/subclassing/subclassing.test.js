@@ -3,11 +3,16 @@
 const isObject = require('../../../utils/values/is_object');
 
 const {
-  userFunctionStore,
   userFactory,
   adminFunctionStore,
   adminFactory,
-} = require('./subclassing');
+} = require('./subclassing'); // comment out to test solution file
+
+// const {
+//   userFactory,
+//   adminFunctionStore,
+//   adminFactory,
+// } = require('./subclassing.solution'); // uncomment to test solution file
 
 describe('Subclassing', () => {
   describe('adminFunctionStore', () => {
@@ -54,6 +59,19 @@ describe('Subclassing', () => {
 
     test('instances should have access to adminFunctionStore methods', () => {
       expect(result.__proto__).toBe(adminFunctionStore);
+    });
+
+    test("sharePublicMessage() should return 'Welcome users!'", () => {
+      expect(adminFunctionStore.sharePublicMessage()).toBe('Welcome users!');
+    });
+
+    test('sharePublicMessage() should only be available to admins', () => {
+      const nonAdmin = userFactory(...data);
+
+      expect(nonAdmin.sharePublicMessage).toBeUndefined();
+      expect(result.sharePublicMessage).toBe(
+        adminFunctionStore.sharePublicMessage
+      );
     });
   });
 });
