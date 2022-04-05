@@ -41,7 +41,7 @@ Create an adminFactory function that creates an object with all the same data
 fields (and default values) as objects of the userFactory class, but without
 copying each data field individually.
 
-Make sure the value of the 'type' field for adminFactory objects is
+Now make sure the value of the 'type' field for adminFactory objects is
 'Admin' instead of 'User'.
 
 Make sure that adminFactory objects have access to adminFunctionStore methods,
