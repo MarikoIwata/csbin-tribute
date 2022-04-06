@@ -1,6 +1,6 @@
 let goodKeys;
-// goodKeys = require('./good_keys');
-goodKeys = require('./solution'); // uncomment to test solution file
+goodKeys = require('./good_keys');
+// goodKeys = require('./solution'); // uncomment to test solution file
 
 function setup() {
   return {
