@@ -40,6 +40,31 @@ Finally, Codesmith and their co-founder, Will Sentance, are among my personal JS
 
 On that sentimental note, enjoy :)
 
+### _Update 6 April 2022:_
+
+- This is still a work-in-progress. Sections that are in a presentable state
+
+  - intro (up to challenge 11 'longest word')
+
+  - callbacks
+
+  - closures (tests written for challenges 1-17)
+
+  - OOP
+    - object literals
+
+    - Object.create
+
+    - new keyword
+
+    - es6 classes
+
+    - subclassing
+
+  - extensions
+
+    - closures
+
 ### _Update 27 March 2022:_
 
 - I couldn't help myself and am coming up with additional challenges that I hope are instructive.
